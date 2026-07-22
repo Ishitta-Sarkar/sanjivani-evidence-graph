@@ -27,11 +27,18 @@ def display_connections(connections):
     print("\nConnections found:\n")
 
     for connection in connections:
-        print(
-            f"{connection['entity']} "
-            f"--{connection['relationship']}--> "
-            f"{connection['connected_to']}"
-        )
+        if connection["direction"] == "forward":
+            print(
+                f"{connection['entity']} "
+                f"--{connection['relationship']}--> "
+                f"{connection['connected_to']}"
+            )
+        else:
+            print(
+                f"{connection['entity']} "
+                f"<--{connection['relationship']}-- "
+                f"{connection['connected_to']}"
+            )
 
 
 def display_path(path):
@@ -39,8 +46,21 @@ def display_path(path):
         print("\nNo connecting path was found.")
         return
 
-    print("\nConnecting path:\n")
-    print(" → ".join(path))
+    print("\nExplainable biomedical path:\n")
+
+    for step in path:
+        if step["direction"] == "forward":
+            print(
+                f"{step['source']} "
+                f"--{step['relationship']}--> "
+                f"{step['target']}"
+            )
+        else:
+            print(
+                f"{step['source']} "
+                f"<--{step['relationship']}-- "
+                f"{step['target']}"
+            )
 
 
 def main():
