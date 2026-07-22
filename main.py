@@ -19,6 +19,21 @@ def load_relationships(file_path):
     return graph
 
 
+def display_connections(connections):
+    if not connections:
+        print("\nNo connections were found for this entity.")
+        return
+
+    print("\nConnections found:\n")
+
+    for connection in connections:
+        print(
+            f"{connection['entity']} "
+            f"--{connection['relationship']}--> "
+            f"{connection['connected_to']}"
+        )
+
+
 def main():
     print("=" * 60)
     print("SANJIVANI Evidence Graph")
@@ -27,7 +42,14 @@ def main():
     graph = load_relationships("data/relationships.csv")
 
     print("\nBiomedical relationships loaded successfully.")
-    graph.display()
+
+    search_entity = input(
+        "\nEnter a disease, gene, protein, pathway, or drug: "
+    ).strip()
+
+    connections = graph.find_connections(search_entity)
+
+    display_connections(connections)
 
 
 if __name__ == "__main__":
