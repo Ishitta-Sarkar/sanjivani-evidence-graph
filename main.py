@@ -97,6 +97,18 @@ def main():
         return
 
     print("\nDataset validated and loaded successfully.")
+        statistics = graph.get_statistics()
+
+    print("\nGraph Summary")
+    print("-" * 30)
+    print(
+        f"Total biomedical entities: "
+        f"{statistics['total_entities']}"
+    )
+    print(
+        f"Total relationships: "
+        f"{statistics['total_relationships']}"
+    )
 
     print("\n1. Search for direct connections")
     print("2. Find a path between two entities")
