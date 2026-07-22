@@ -1,0 +1,12 @@
+Entity,Type
+Type 2 Diabetes,Disease
+INS,Gene
+Insulin,Protein
+Insulin Signaling Pathway,Pathway
+Metformin,Drug
+AMPK,Protein
+Glucose Metabolism,Pathway
+Alzheimer's Disease,Disease
+APOE,Gene
+Apolipoprotein E,Protein
+Lipid Metabolism,Pathway
