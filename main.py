@@ -14,6 +14,7 @@ def load_relationships(file_path):
                 row["Source"],
                 row["Relationship"],
                 row["Target"],
+                row["Evidence"],
             )
 
     return graph
@@ -40,6 +41,10 @@ def display_connections(connections):
                 f"{connection['connected_to']}"
             )
 
+        print(
+            f"Evidence source: {connection['evidence']}\n"
+        )
+
 
 def display_path(path):
     if not path:
@@ -61,6 +66,10 @@ def display_path(path):
                 f"<--{step['relationship']}-- "
                 f"{step['target']}"
             )
+
+        print(
+            f"Evidence source: {step['evidence']}\n"
+        )
 
 
 def main():
