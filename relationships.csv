@@ -1,0 +1,11 @@
+Source,Relationship,Target,Evidence
+Type 2 Diabetes,associated_with,INS,GeneCards
+INS,encodes,Insulin,UniProt
+Insulin,participates_in,Insulin Signaling Pathway,Reactome
+Metformin,targets,AMPK,DrugBank
+AMPK,participates_in,Glucose Metabolism,KEGG
+Glucose Metabolism,related_to,Type 2 Diabetes,KEGG
+Alzheimer's Disease,associated_with,APOE,GeneCards
+APOE,encodes,Apolipoprotein E,UniProt
+Apolipoprotein E,participates_in,Lipid Metabolism,Reactome
+Lipid Metabolism,related_to,Alzheimer's Disease,KEGG
