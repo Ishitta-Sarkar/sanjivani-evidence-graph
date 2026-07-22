@@ -140,6 +140,11 @@ class BiomedicalGraph:
                     )
 
         return []
+            def get_entities(self):
+        return sorted(
+            self.adjacency.keys(),
+            key=str.lower,
+        )
     def get_statistics(self):
         return {
             "total_entities": len(self.adjacency),
