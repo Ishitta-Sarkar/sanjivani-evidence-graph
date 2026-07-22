@@ -112,6 +112,7 @@ def main():
 
     print("\n1. Search for direct connections")
     print("2. Find a path between two entities")
+    print("3. Show all available entities")
 
     choice = input(
         "\nSelect an option: "
@@ -143,9 +144,19 @@ def main():
         )
 
         display_path(path)
+    elif choice == "3":
+        entities = graph.get_entities()
+
+        print("\nAvailable biomedical entities:\n")
+
+        for number, entity in enumerate(
+            entities,
+            start=1,
+        ):
+            print(f"{number}. {entity}")
 
     else:
-        print("\nInvalid option. Please select 1 or 2.")
+        print("Invalid option. Please select 1, 2, or 3.")
 
 
 if __name__ == "__main__":
