@@ -7,9 +7,20 @@ class BiomedicalGraph:
         self.relationships = []
         self.adjacency = {}
 
-    def add_relationship(self, source, relation, target):
+    def add_relationship(
+        self,
+        source,
+        relation,
+        target,
+        evidence="Not specified",
+    ):
         self.relationships.append(
-            (source, relation, target)
+            {
+                "source": source,
+                "relationship": relation,
+                "target": target,
+                "evidence": evidence,
+            }
         )
 
         if source not in self.adjacency:
@@ -23,6 +34,7 @@ class BiomedicalGraph:
                 "neighbour": target,
                 "relationship": relation,
                 "direction": "forward",
+                "evidence": evidence,
             }
         )
 
@@ -31,14 +43,20 @@ class BiomedicalGraph:
                 "neighbour": source,
                 "relationship": relation,
                 "direction": "reverse",
+                "evidence": evidence,
             }
         )
 
     def display(self):
         print("\nBiomedical Knowledge Graph\n")
 
-        for source, relation, target in self.relationships:
-            print(f"{source} --{relation}--> {target}")
+        for relationship in self.relationships:
+            print(
+                f"{relationship['source']} "
+                f"--{relationship['relationship']}--> "
+                f"{relationship['target']} "
+                f"[Evidence: {relationship['evidence']}]"
+            )
 
     def find_connections(self, entity):
         connections = []
@@ -57,6 +75,7 @@ class BiomedicalGraph:
                     "relationship": connection["relationship"],
                     "connected_to": connection["neighbour"],
                     "direction": connection["direction"],
+                    "evidence": connection["evidence"],
                 }
             )
 
@@ -107,6 +126,9 @@ class BiomedicalGraph:
                         "target": neighbour,
                         "direction": connection[
                             "direction"
+                        ],
+                        "evidence": connection[
+                            "evidence"
                         ],
                     }
 
