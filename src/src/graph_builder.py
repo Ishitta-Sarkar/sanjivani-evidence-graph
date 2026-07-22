@@ -140,7 +140,11 @@ class BiomedicalGraph:
                     )
 
         return []
-
+    def get_statistics(self):
+        return {
+            "total_entities": len(self.adjacency),
+            "total_relationships": len(self.relationships),
+        }
     def _find_exact_entity(self, entity):
         for stored_entity in self.adjacency:
             if stored_entity.lower() == entity.lower():
