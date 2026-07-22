@@ -19,11 +19,19 @@ class BiomedicalGraph:
             self.adjacency[target] = []
 
         self.adjacency[source].append(
-            (target, relation)
+            {
+                "neighbour": target,
+                "relationship": relation,
+                "direction": "forward",
+            }
         )
 
         self.adjacency[target].append(
-            (source, relation)
+            {
+                "neighbour": source,
+                "relationship": relation,
+                "direction": "reverse",
+            }
         )
 
     def display(self):
@@ -34,57 +42,78 @@ class BiomedicalGraph:
 
     def find_connections(self, entity):
         connections = []
+        actual_entity = self._find_exact_entity(entity)
 
-        for source, relation, target in self.relationships:
-            if entity.lower() == source.lower():
-                connections.append(
-                    {
-                        "entity": source,
-                        "relationship": relation,
-                        "connected_to": target,
-                    }
-                )
+        if actual_entity is None:
+            return connections
 
-            elif entity.lower() == target.lower():
-                connections.append(
-                    {
-                        "entity": target,
-                        "relationship": relation,
-                        "connected_to": source,
-                    }
-                )
+        for connection in self.adjacency.get(
+            actual_entity,
+            [],
+        ):
+            connections.append(
+                {
+                    "entity": actual_entity,
+                    "relationship": connection["relationship"],
+                    "connected_to": connection["neighbour"],
+                    "direction": connection["direction"],
+                }
+            )
 
         return connections
 
     def find_path(self, start_entity, end_entity):
-        actual_start = self._find_exact_entity(start_entity)
-        actual_end = self._find_exact_entity(end_entity)
+        actual_start = self._find_exact_entity(
+            start_entity
+        )
+        actual_end = self._find_exact_entity(
+            end_entity
+        )
 
         if actual_start is None or actual_end is None:
             return []
 
         queue = deque(
-            [(actual_start, [actual_start])]
+            [
+                (
+                    actual_start,
+                    [],
+                )
+            ]
         )
 
         visited = {actual_start}
 
         while queue:
-            current_entity, path = queue.popleft()
+            current_entity, path_steps = queue.popleft()
 
             if current_entity == actual_end:
-                return path
+                return path_steps
 
-            for neighbour, _ in self.adjacency.get(
+            for connection in self.adjacency.get(
                 current_entity,
                 [],
             ):
+                neighbour = connection["neighbour"]
+
                 if neighbour not in visited:
                     visited.add(neighbour)
+
+                    step = {
+                        "source": current_entity,
+                        "relationship": connection[
+                            "relationship"
+                        ],
+                        "target": neighbour,
+                        "direction": connection[
+                            "direction"
+                        ],
+                    }
+
                     queue.append(
                         (
                             neighbour,
-                            path + [neighbour],
+                            path_steps + [step],
                         )
                     )
 
