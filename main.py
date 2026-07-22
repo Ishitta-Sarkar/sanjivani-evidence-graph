@@ -1,5 +1,6 @@
 import csv
 
+from src.data_validator import validate_dataset
 from src.graph_builder import BiomedicalGraph
 
 
@@ -9,7 +10,9 @@ def load_relationships(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
 
-        for row in reader:
+        validated_rows = validate_dataset(reader)
+
+        for row in validated_rows:
             graph.add_relationship(
                 row["Source"],
                 row["Relationship"],
@@ -77,9 +80,23 @@ def main():
     print("SANJIVANI Evidence Graph")
     print("=" * 60)
 
-    graph = load_relationships(
-        "data/relationships.csv"
-    )
+    try:
+        graph = load_relationships(
+            "data/relationships.csv"
+        )
+
+    except FileNotFoundError:
+        print(
+            "\nError: The biomedical relationships dataset "
+            "could not be found."
+        )
+        return
+
+    except ValueError as error:
+        print(f"\nDataset validation error: {error}")
+        return
+
+    print("\nDataset validated and loaded successfully.")
 
     print("\n1. Search for direct connections")
     print("2. Find a path between two entities")
