@@ -34,22 +34,60 @@ def display_connections(connections):
         )
 
 
+def display_path(path):
+    if not path:
+        print("\nNo connecting path was found.")
+        return
+
+    print("\nConnecting path:\n")
+    print(" → ".join(path))
+
+
 def main():
     print("=" * 60)
     print("SANJIVANI Evidence Graph")
     print("=" * 60)
 
-    graph = load_relationships("data/relationships.csv")
+    graph = load_relationships(
+        "data/relationships.csv"
+    )
 
-    print("\nBiomedical relationships loaded successfully.")
+    print("\n1. Search for direct connections")
+    print("2. Find a path between two entities")
 
-    search_entity = input(
-        "\nEnter a disease, gene, protein, pathway, or drug: "
+    choice = input(
+        "\nSelect an option: "
     ).strip()
 
-    connections = graph.find_connections(search_entity)
+    if choice == "1":
+        search_entity = input(
+            "\nEnter a disease, gene, protein, pathway, or drug: "
+        ).strip()
 
-    display_connections(connections)
+        connections = graph.find_connections(
+            search_entity
+        )
+
+        display_connections(connections)
+
+    elif choice == "2":
+        start_entity = input(
+            "\nEnter the starting entity: "
+        ).strip()
+
+        end_entity = input(
+            "Enter the ending entity: "
+        ).strip()
+
+        path = graph.find_path(
+            start_entity,
+            end_entity,
+        )
+
+        display_path(path)
+
+    else:
+        print("\nInvalid option. Please select 1 or 2.")
 
 
 if __name__ == "__main__":
