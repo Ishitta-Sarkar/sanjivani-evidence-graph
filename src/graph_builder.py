@@ -2,7 +2,6 @@ from collections import deque
 
 
 class BiomedicalGraph:
-
     def __init__(self):
         self.relationships = []
         self.adjacency = {}
@@ -82,12 +81,8 @@ class BiomedicalGraph:
         return connections
 
     def find_path(self, start_entity, end_entity):
-        actual_start = self._find_exact_entity(
-            start_entity
-        )
-        actual_end = self._find_exact_entity(
-            end_entity
-        )
+        actual_start = self._find_exact_entity(start_entity)
+        actual_end = self._find_exact_entity(end_entity)
 
         if actual_start is None or actual_end is None:
             return []
@@ -120,16 +115,10 @@ class BiomedicalGraph:
 
                     step = {
                         "source": current_entity,
-                        "relationship": connection[
-                            "relationship"
-                        ],
+                        "relationship": connection["relationship"],
                         "target": neighbour,
-                        "direction": connection[
-                            "direction"
-                        ],
-                        "evidence": connection[
-                            "evidence"
-                        ],
+                        "direction": connection["direction"],
+                        "evidence": connection["evidence"],
                     }
 
                     queue.append(
@@ -140,19 +129,22 @@ class BiomedicalGraph:
                     )
 
         return []
-            def get_entities(self):
+
+    def get_entities(self):
         return sorted(
             self.adjacency.keys(),
             key=str.lower,
         )
+
     def get_statistics(self):
         return {
             "total_entities": len(self.adjacency),
             "total_relationships": len(self.relationships),
         }
+
     def _find_exact_entity(self, entity):
         for stored_entity in self.adjacency:
-            if stored_entity.lower() == entity.lower():
+            if stored_entity.casefold() == entity.casefold():
                 return stored_entity
 
         return None
