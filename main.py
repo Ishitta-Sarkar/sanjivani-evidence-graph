@@ -3,7 +3,7 @@ import csv
 from src.data_validator import validate_dataset
 from src.entity_loader import load_entity_types
 from src.graph_builder import BiomedicalGraph
-
+from src.entity_loader import load_entity_types
 
 RELATIONSHIPS_FILE = "data/relationships.csv"
 ENTITIES_FILE = "data/entities.csv"
