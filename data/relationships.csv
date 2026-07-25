@@ -21,3 +21,10 @@ Levodopa,treats,Parkinson's Disease,DrugBank
 Alpha-synuclein,participates_in,Dopaminergic Signaling Pathway,Reactome
 Dopaminergic Signaling Pathway,related_to,Parkinson's Disease,KEGG
 Parkinson's Disease,related_to,Alzheimer's Disease,DisGeNET
+Breast Cancer,associated_with,BRCA1,GeneCards
+BRCA1,encodes,BRCA1 Protein,UniProt
+BRCA1 Protein,participates_in,Homologous Recombination Repair,Reactome
+Olaparib,targets,PARP1,DrugBank
+PARP1,participates_in,Homologous Recombination Repair,Reactome
+Homologous Recombination Repair,related_to,Breast Cancer,KEGG
+Olaparib,treats,Breast Cancer,DrugBank
