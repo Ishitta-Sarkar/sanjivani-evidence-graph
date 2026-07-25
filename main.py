@@ -1,6 +1,7 @@
 import csv
 
 from src.data_validator import validate_dataset
+from src.drug_recommender import display_recommendations
 from src.entity_loader import load_entity_types
 from src.graph_analytics import display_graph_analytics
 from src.graph_builder import BiomedicalGraph
@@ -180,18 +181,9 @@ def main():
 
     print("\nGraph Summary")
     print("-" * 30)
-    print(
-        f"Total biomedical entities: "
-        f"{statistics['total_entities']}"
-    )
-    print(
-        f"Total relationships: "
-        f"{statistics['total_relationships']}"
-    )
-    print(
-        f"Typed entities available: "
-        f"{len(entity_types)}"
-    )
+    print(f"Total biomedical entities: {statistics['total_entities']}")
+    print(f"Total relationships: {statistics['total_relationships']}")
+    print(f"Typed entities available: {len(entity_types)}")
 
     while True:
         print("\nMenu")
@@ -201,7 +193,8 @@ def main():
         print("3. Show all available entities")
         print("4. Generate graph visualization")
         print("5. Graph analytics")
-        print("6. Exit")
+        print("6. Drug recommendations")
+        print("7. Exit")
 
         choice = input("\nSelect an option: ").strip()
 
@@ -219,13 +212,8 @@ def main():
             )
 
         elif choice == "2":
-            start_entity = input(
-                "\nEnter the starting entity: "
-            ).strip()
-
-            end_entity = input(
-                "Enter the ending entity: "
-            ).strip()
+            start_entity = input("\nEnter the starting entity: ").strip()
+            end_entity = input("Enter the ending entity: ").strip()
 
             path = graph.find_path(
                 start_entity,
@@ -253,18 +241,29 @@ def main():
 
         elif choice == "5":
             display_graph_analytics(
-    graph,
-    entity_types,
-)
+                graph,
+                entity_types,
+            )
 
         elif choice == "6":
+            disease_name = input(
+                "\nEnter a disease name: "
+            ).strip()
+
+            display_recommendations(
+                graph,
+                disease_name,
+                entity_types,
+            )
+
+        elif choice == "7":
             print("\nExiting SANJIVANI. Goodbye!")
             break
 
         else:
             print(
                 "\nInvalid option. "
-                "Please select an option from 1 to 6."
+                "Please select an option from 1 to 7."
             )
 
 
