@@ -163,49 +163,55 @@ def main():
         f"{len(entity_types)}"
     )
 
-    print("\nMenu")
-    print("-" * 30)
-    print("1. Search for direct connections")
-    print("2. Find a path between two entities")
-    print("3. Show all available entities")
+    while True:
+        print("\nMenu")
+        print("-" * 30)
+        print("1. Search for direct connections")
+        print("2. Find a path between two entities")
+        print("3. Show all available entities")
+        print("4. Exit")
 
-    choice = input("\nSelect an option: ").strip()
+        choice = input("\nSelect an option: ").strip()
 
-    if choice == "1":
-        search_entity = input(
-            "\nEnter a disease, gene, protein, pathway, or drug: "
-        ).strip()
+        if choice == "1":
+            search_entity = input(
+                "\nEnter a disease, gene, protein, pathway, or drug: "
+            ).strip()
 
-        connections = graph.find_connections(search_entity)
+            connections = graph.find_connections(search_entity)
 
-        display_connections(
-            search_entity,
-            connections,
-            entity_types,
-        )
+            display_connections(
+                search_entity,
+                connections,
+                entity_types,
+            )
 
-    elif choice == "2":
-        start_entity = input(
-            "\nEnter the starting entity: "
-        ).strip()
+        elif choice == "2":
+            start_entity = input(
+                "\nEnter the starting entity: "
+            ).strip()
 
-        end_entity = input(
-            "Enter the ending entity: "
-        ).strip()
+            end_entity = input(
+                "Enter the ending entity: "
+            ).strip()
 
-        path = graph.find_path(
-            start_entity,
-            end_entity,
-        )
+            path = graph.find_path(
+                start_entity,
+                end_entity,
+            )
 
-        display_path(path, entity_types)
+            display_path(path, entity_types)
 
-    elif choice == "3":
-        entities = graph.get_entities()
-        display_entities(entities, entity_types)
+        elif choice == "3":
+            entities = graph.get_entities()
+            display_entities(entities, entity_types)
 
-    else:
-        print("\nInvalid option. Please select 1, 2, or 3.")
+        elif choice == "4":
+            print("\nExiting SANJIVANI. Goodbye!")
+            break
+
+        else:
+            print("\nInvalid option. Please select 1, 2, 3, or 4.")
 
 
 if __name__ == "__main__":
