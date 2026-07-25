@@ -15,3 +15,9 @@ Pioglitazone,targets,PPAR Gamma,DrugBank
 PPAR Gamma,participates_in,Fatty Acid Metabolism,Reactome
 Fatty Acid Metabolism,related_to,Obesity,KEGG
 Obesity,related_to,Type 2 Diabetes,DisGeNET
+Parkinson's Disease,associated_with,SNCA,GeneCards
+SNCA,encodes,Alpha-synuclein,UniProt
+Levodopa,treats,Parkinson's Disease,DrugBank
+Alpha-synuclein,participates_in,Dopaminergic Signaling Pathway,Reactome
+Dopaminergic Signaling Pathway,related_to,Parkinson's Disease,KEGG
+Parkinson's Disease,related_to,Alzheimer's Disease,DisGeNET
