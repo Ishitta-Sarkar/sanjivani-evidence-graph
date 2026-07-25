@@ -63,3 +63,10 @@ def load_entity_types(file_path):
             entity_types[entity] = entity_type
 
     return entity_types
+    if __name__ == "__main__":
+    entity_types = load_entity_types("data/entities.csv")
+
+    print("Loaded entity types:\n")
+
+    for entity, entity_type in entity_types.items():
+        print(f"{entity} -> {entity_type}")
