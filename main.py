@@ -2,7 +2,7 @@ import csv
 
 from src.data_validator import validate_dataset
 from src.graph_builder import BiomedicalGraph
-
+from src.entity_loader import load_entity_types
 
 def load_relationships(file_path):
     graph = BiomedicalGraph()
