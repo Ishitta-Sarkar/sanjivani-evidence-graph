@@ -35,7 +35,19 @@ to support computational drug discovery and systems biology research.
 🚧 Version 1.0 — Repository Initialization
 
 This repository is currently under active development.
+## Current Features
 
+Current Version includes:
+
+- Explainable biomedical knowledge graph
+- Drug–Gene–Protein–Pathway relationships
+- Evidence tracking (DrugBank, KEGG, GeneCards)
+- Direct connection search
+- Shortest biological path finding
+- Case-insensitive search
+- Biomedical graph visualization
+- Interactive command-line interface
+- Dataset validation
 ---
 
 ## Author

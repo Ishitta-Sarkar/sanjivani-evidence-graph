@@ -3,6 +3,7 @@ import csv
 from src.data_validator import validate_dataset
 from src.entity_loader import load_entity_types
 from src.graph_builder import BiomedicalGraph
+from src.graph_visualizer import create_graph_visualization
 
 
 RELATIONSHIPS_FILE = "data/relationships.csv"
@@ -191,7 +192,8 @@ def main():
         print("1. Search for direct connections")
         print("2. Find a path between two entities")
         print("3. Show all available entities")
-        print("4. Exit")
+        print("4. Generate graph visualization")
+        print("5. Exit")
 
         choice = input("\nSelect an option: ").strip()
 
@@ -236,13 +238,19 @@ def main():
             )
 
         elif choice == "4":
+            create_graph_visualization(
+    graph,
+    entity_types,
+)
+
+        elif choice == "5":
             print("\nExiting SANJIVANI. Goodbye!")
             break
 
         else:
             print(
                 "\nInvalid option. "
-                "Please select 1, 2, 3, or 4."
+                "Please select 1, 2, 3, 4, or 5."
             )
 
 
