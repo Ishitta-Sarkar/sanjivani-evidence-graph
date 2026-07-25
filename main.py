@@ -3,7 +3,7 @@ import csv
 from src.data_validator import validate_dataset
 from src.entity_loader import load_entity_types
 from src.graph_builder import BiomedicalGraph
-from src.entity_loader import load_entity_types
+
 
 RELATIONSHIPS_FILE = "data/relationships.csv"
 ENTITIES_FILE = "data/entities.csv"
@@ -41,14 +41,34 @@ def find_entity_type(entity_name, entity_types):
     return "Unknown"
 
 
+def find_exact_entity_name(entity_name, entity_types):
+    """Return the correctly capitalized entity name."""
+
+    cleaned_name = entity_name.strip().casefold()
+
+    for entity in entity_types:
+        if entity.casefold() == cleaned_name:
+            return entity
+
+    return entity_name.strip()
+
+
 def display_connections(search_entity, connections, entity_types):
     """Display direct biomedical connections and evidence."""
 
-    entity_type = find_entity_type(search_entity, entity_types)
+    actual_search_entity = find_exact_entity_name(
+        search_entity,
+        entity_types,
+    )
+
+    entity_type = find_entity_type(
+        actual_search_entity,
+        entity_types,
+    )
 
     print("\nEntity Information")
     print("-" * 30)
-    print(f"Entity: {search_entity}")
+    print(f"Entity: {actual_search_entity}")
     print(f"Type: {entity_type}")
 
     if not connections:
@@ -59,6 +79,7 @@ def display_connections(search_entity, connections, entity_types):
 
     for connection in connections:
         connected_entity = connection["connected_to"]
+
         connected_type = find_entity_type(
             connected_entity,
             entity_types,
@@ -66,13 +87,13 @@ def display_connections(search_entity, connections, entity_types):
 
         if connection["direction"] == "forward":
             print(
-                f"{connection['entity']} "
+                f"{actual_search_entity} "
                 f"--{connection['relationship']}--> "
                 f"{connected_entity} [{connected_type}]"
             )
         else:
             print(
-                f"{connection['entity']} "
+                f"{actual_search_entity} "
                 f"<--{connection['relationship']}-- "
                 f"{connected_entity} [{connected_type}]"
             )
@@ -94,6 +115,7 @@ def display_path(path, entity_types):
             step["source"],
             entity_types,
         )
+
         target_type = find_entity_type(
             step["target"],
             entity_types,
@@ -200,18 +222,28 @@ def main():
                 end_entity,
             )
 
-            display_path(path, entity_types)
+            display_path(
+                path,
+                entity_types,
+            )
 
         elif choice == "3":
             entities = graph.get_entities()
-            display_entities(entities, entity_types)
+
+            display_entities(
+                entities,
+                entity_types,
+            )
 
         elif choice == "4":
             print("\nExiting SANJIVANI. Goodbye!")
             break
 
         else:
-            print("\nInvalid option. Please select 1, 2, 3, or 4.")
+            print(
+                "\nInvalid option. "
+                "Please select 1, 2, 3, or 4."
+            )
 
 
 if __name__ == "__main__":

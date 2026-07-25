@@ -13,14 +13,16 @@ class BiomedicalGraph:
         target,
         evidence="Not specified",
     ):
-        self.relationships.append(
-            {
-                "source": source,
-                "relationship": relation,
-                "target": target,
-                "evidence": evidence,
-            }
-        )
+        """Add a biomedical relationship to the graph."""
+
+        relationship_data = {
+            "source": source,
+            "relationship": relation,
+            "target": target,
+            "evidence": evidence,
+        }
+
+        self.relationships.append(relationship_data)
 
         if source not in self.adjacency:
             self.adjacency[source] = []
@@ -47,6 +49,8 @@ class BiomedicalGraph:
         )
 
     def display(self):
+        """Display all relationships in the graph."""
+
         print("\nBiomedical Knowledge Graph\n")
 
         for relationship in self.relationships:
@@ -57,34 +61,46 @@ class BiomedicalGraph:
                 f"[Evidence: {relationship['evidence']}]"
             )
 
-    def find_connections(self, entity):
-        connections = []
-        actual_entity = self._find_exact_entity(entity)
+    def find_connections(self, entity_name):
+        """Return direct connections while ignoring letter case."""
+
+        actual_entity = self._find_exact_entity(entity_name)
 
         if actual_entity is None:
-            return connections
+            return []
 
-        for connection in self.adjacency.get(
-            actual_entity,
-            [],
-        ):
+        connections = []
+
+        for connection in self.adjacency.get(actual_entity, []):
+            neighbour = connection["neighbour"]
+            relationship = connection["relationship"]
+            direction = connection["direction"]
+            evidence = connection["evidence"]
+
             connections.append(
                 {
-                    "entity": actual_entity,
-                    "relationship": connection["relationship"],
-                    "connected_to": connection["neighbour"],
-                    "direction": connection["direction"],
-                    "evidence": connection["evidence"],
+                    "entity": neighbour,
+                    "connected_to": neighbour,
+                    "neighbour": neighbour,
+                    "relationship": relationship,
+                    "direction": direction,
+                    "evidence": evidence,
+                    "evidence_source": evidence,
                 }
             )
 
         return connections
 
     def find_path(self, start_entity, end_entity):
+        """Find the shortest path between two biomedical entities."""
+
         actual_start = self._find_exact_entity(start_entity)
         actual_end = self._find_exact_entity(end_entity)
 
         if actual_start is None or actual_end is None:
+            return []
+
+        if actual_start == actual_end:
             return []
 
         queue = deque(
@@ -119,6 +135,7 @@ class BiomedicalGraph:
                         "target": neighbour,
                         "direction": connection["direction"],
                         "evidence": connection["evidence"],
+                        "evidence_source": connection["evidence"],
                     }
 
                     queue.append(
@@ -131,20 +148,28 @@ class BiomedicalGraph:
         return []
 
     def get_entities(self):
+        """Return all entities alphabetically."""
+
         return sorted(
             self.adjacency.keys(),
             key=str.lower,
         )
 
     def get_statistics(self):
+        """Return graph statistics."""
+
         return {
             "total_entities": len(self.adjacency),
             "total_relationships": len(self.relationships),
         }
 
-    def _find_exact_entity(self, entity):
+    def _find_exact_entity(self, entity_name):
+        """Find the correctly capitalized entity name."""
+
+        cleaned_name = entity_name.strip().casefold()
+
         for stored_entity in self.adjacency:
-            if stored_entity.casefold() == entity.casefold():
+            if stored_entity.casefold() == cleaned_name:
                 return stored_entity
 
         return None
