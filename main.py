@@ -2,6 +2,7 @@ import csv
 
 from src.data_validator import validate_dataset
 from src.entity_loader import load_entity_types
+from src.graph_analytics import display_graph_analytics
 from src.graph_builder import BiomedicalGraph
 from src.graph_visualizer import create_graph_visualization
 from src.version import __version__
@@ -199,7 +200,8 @@ def main():
         print("2. Find a path between two entities")
         print("3. Show all available entities")
         print("4. Generate graph visualization")
-        print("5. Exit")
+        print("5. Graph analytics")
+        print("6. Exit")
 
         choice = input("\nSelect an option: ").strip()
 
@@ -250,13 +252,19 @@ def main():
             )
 
         elif choice == "5":
+            display_graph_analytics(
+    graph,
+    entity_types,
+)
+
+        elif choice == "6":
             print("\nExiting SANJIVANI. Goodbye!")
             break
 
         else:
             print(
                 "\nInvalid option. "
-                "Please select 1, 2, 3, 4, or 5."
+                "Please select an option from 1 to 6."
             )
 
 
