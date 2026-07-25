@@ -28,3 +28,56 @@ Olaparib,targets,PARP1,DrugBank
 PARP1,participates_in,Homologous Recombination Repair,Reactome
 Homologous Recombination Repair,related_to,Breast Cancer,KEGG
 Olaparib,treats,Breast Cancer,DrugBank
+COVID-19,associated_with,ACE2,GeneCards
+ACE2,encodes,Angiotensin-Converting Enzyme 2,UniProt
+TMPRSS2,encodes,TMPRSS2 Protein,UniProt
+Angiotensin-Converting Enzyme 2,participates_in,Viral Entry Pathway,Reactome
+TMPRSS2 Protein,participates_in,Viral Entry Pathway,Reactome
+SARS-CoV-2 Spike Protein,binds_to,Angiotensin-Converting Enzyme 2,UniProt
+Remdesivir,treats,COVID-19,DrugBank
+
+Influenza,associated_with,Influenza Hemagglutinin,UniProt
+Oseltamivir,treats,Influenza,DrugBank
+Influenza Hemagglutinin,participates_in,Viral Entry Pathway,Reactome
+
+Hypertension,associated_with,ACE,GeneCards
+ACE,encodes,Angiotensin-Converting Enzyme,UniProt
+Angiotensin-Converting Enzyme,participates_in,Renin-Angiotensin System,Reactome
+Renin-Angiotensin System,related_to,Hypertension,KEGG
+Lisinopril,targets,Angiotensin-Converting Enzyme,DrugBank
+Lisinopril,treats,Hypertension,DrugBank
+
+Atherosclerosis,associated_with,LDLR,GeneCards
+LDLR,encodes,LDL Receptor,UniProt
+LDL Receptor,participates_in,Cholesterol Metabolism,Reactome
+Cholesterol Metabolism,related_to,Atherosclerosis,KEGG
+Atorvastatin,targets,LDL Receptor,DrugBank
+Atorvastatin,treats,Atherosclerosis,DrugBank
+
+Colorectal Cancer,associated_with,APC,GeneCards
+APC,encodes,APC Protein,UniProt
+APC Protein,participates_in,Wnt Signaling Pathway,Reactome
+Wnt Signaling Pathway,related_to,Colorectal Cancer,KEGG
+5-Fluorouracil,treats,Colorectal Cancer,DrugBank
+
+Chronic Kidney Disease,associated_with,NPHS1,GeneCards
+NPHS1,encodes,Nephrin,UniProt
+Nephrin,participates_in,Glomerular Filtration Pathway,Reactome
+Glomerular Filtration Pathway,related_to,Chronic Kidney Disease,KEGG
+Losartan,treats,Chronic Kidney Disease,DrugBank
+
+Rheumatoid Arthritis,associated_with,TNF,GeneCards
+TNF,encodes,Tumor Necrosis Factor Alpha,UniProt
+Tumor Necrosis Factor Alpha,participates_in,Inflammatory Response,Reactome
+Inflammatory Response,related_to,Rheumatoid Arthritis,KEGG
+Adalimumab,targets,Tumor Necrosis Factor Alpha,DrugBank
+Adalimumab,treats,Rheumatoid Arthritis,DrugBank
+
+Asthma,associated_with,IL4,GeneCards
+IL4,encodes,Interleukin-4,UniProt
+Interleukin-4,participates_in,Immune Signaling Pathway,Reactome
+Immune Signaling Pathway,related_to,Asthma,KEGG
+Montelukast,treats,Asthma,DrugBank
+
+Hepatitis B,associated_with,HBV Surface Antigen,UniProt
+Tenofovir,treats,Hepatitis B,DrugBank

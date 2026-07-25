@@ -26,3 +26,55 @@ BRCA1 Protein,Protein
 Homologous Recombination Repair,Pathway
 PARP1,Protein
 Olaparib,Drug
+COVID-19,Disease
+ACE2,Gene
+Angiotensin-Converting Enzyme 2,Protein
+TMPRSS2,Gene
+TMPRSS2 Protein,Protein
+Viral Entry Pathway,Pathway
+SARS-CoV-2 Spike Protein,Protein
+Remdesivir,Drug
+
+Influenza,Disease
+Influenza Hemagglutinin,Protein
+Oseltamivir,Drug
+
+Hypertension,Disease
+ACE,Gene
+Angiotensin-Converting Enzyme,Protein
+Renin-Angiotensin System,Pathway
+Lisinopril,Drug
+
+Atherosclerosis,Disease
+LDLR,Gene
+LDL Receptor,Protein
+Cholesterol Metabolism,Pathway
+Atorvastatin,Drug
+
+Colorectal Cancer,Disease
+APC,Gene
+APC Protein,Protein
+Wnt Signaling Pathway,Pathway
+5-Fluorouracil,Drug
+
+Chronic Kidney Disease,Disease
+NPHS1,Gene
+Nephrin,Protein
+Glomerular Filtration Pathway,Pathway
+Losartan,Drug
+
+Rheumatoid Arthritis,Disease
+TNF,Gene
+Tumor Necrosis Factor Alpha,Protein
+Inflammatory Response,Pathway
+Adalimumab,Drug
+
+Asthma,Disease
+IL4,Gene
+Interleukin-4,Protein
+Immune Signaling Pathway,Pathway
+Montelukast,Drug
+
+Hepatitis B,Disease
+HBV Surface Antigen,Protein
+Tenofovir,Drug
