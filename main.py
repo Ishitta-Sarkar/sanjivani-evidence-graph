@@ -4,6 +4,7 @@ from src.data_validator import validate_dataset
 from src.entity_loader import load_entity_types
 from src.graph_builder import BiomedicalGraph
 from src.graph_visualizer import create_graph_visualization
+from src.version import __version__
 
 
 RELATIONSHIPS_FILE = "data/relationships.csv"
@@ -144,7 +145,11 @@ def display_entities(entities, entity_types):
     print("\nAvailable biomedical entities:\n")
 
     for number, entity in enumerate(entities, start=1):
-        entity_type = find_entity_type(entity, entity_types)
+        entity_type = find_entity_type(
+            entity,
+            entity_types,
+        )
+
         print(f"{number}. {entity} [{entity_type}]")
 
 
@@ -152,7 +157,8 @@ def main():
     """Run the SANJIVANI interactive application."""
 
     print("=" * 60)
-    print("SANJIVANI Evidence Graph")
+    print(f"🧬 SANJIVANI Evidence Graph v{__version__}")
+    print("Explainable Biomedical Knowledge Graph")
     print("=" * 60)
 
     try:
@@ -239,9 +245,9 @@ def main():
 
         elif choice == "4":
             create_graph_visualization(
-    graph,
-    entity_types,
-)
+                graph,
+                entity_types,
+            )
 
         elif choice == "5":
             print("\nExiting SANJIVANI. Goodbye!")

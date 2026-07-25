@@ -9,3 +9,9 @@ Alzheimer's Disease,associated_with,APOE,GeneCards
 APOE,encodes,Apolipoprotein E,UniProt
 Apolipoprotein E,participates_in,Lipid Metabolism,Reactome
 Lipid Metabolism,related_to,Alzheimer's Disease,KEGG
+Obesity,associated_with,PPARG,GeneCards
+PPARG,encodes,PPAR Gamma,UniProt
+Pioglitazone,targets,PPAR Gamma,DrugBank
+PPAR Gamma,participates_in,Fatty Acid Metabolism,Reactome
+Fatty Acid Metabolism,related_to,Obesity,KEGG
+Obesity,related_to,Type 2 Diabetes,DisGeNET
