@@ -1,7 +1,19 @@
 # SANJIVANI Evidence Graph
 
 An explainable biomedical knowledge graph for evidence-based drug repurposing.
+## 📸 Demo
 
+### Drug Recommendation Engine
+
+![Drug Recommendation](screenshots/drug_recommendation.png)
+
+### 📊 Graph Analytics
+
+![Graph Analytics](screenshots/graph_analytics.png)
+
+### 🕸️ Knowledge Graph Visualization
+
+![Knowledge Graph](screenshots/graph_visualization.png)
 ---
 
 ## Project Overview
