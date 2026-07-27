@@ -1,78 +1,23 @@
-# SANJIVANI Evidence Graph
+# 🧬 SANJIVANI
 
-An explainable biomedical knowledge graph for evidence-based drug repurposing.
-## 📸 Demo
+## Explainable Biomedical Intelligence Platform
 
-### Drug Recommendation Engine
+> A research-oriented computational platform for exploring evidence-supported relationships among diseases, genes, proteins, pathways, and therapeutics through explainable biomedical knowledge graphs.
 
-![Drug Recommendation](screenshots/drug_recommendation.png)
-
-### 📊 Graph Analytics
-
-![Graph Analytics](screenshots/graph_analytics.png)
-
-### 🕸️ Knowledge Graph Visualization
-
-![Knowledge Graph](screenshots/graph_visualization.png)
----
-
-## Project Overview
-
-Modern biomedical knowledge is distributed across thousands of databases containing information about diseases, genes, proteins, biological pathways, and drugs.
-
-The goal of this project is to integrate these relationships into an explainable knowledge graph that can help researchers explore biologically meaningful connections and generate evidence-based drug repurposing hypotheses.
+![Version](https://img.shields.io/badge/version-v1.0-2ea44f)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20Application-FF4B4B?logo=streamlit&logoColor=white)
+![NetworkX](https://img.shields.io/badge/NetworkX-Graph%20Analytics-blue)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Copyright](https://img.shields.io/badge/Copyright-All%20Rights%20Reserved-important)
 
 ---
 
-## Inspiration
+## Overview
 
-The name **SANJIVANI** is inspired by the Sanjivani episode from the Ramayana, symbolizing healing and restoration.
+**SANJIVANI** is an explainable biomedical intelligence platform designed to organize, explore, and interpret interconnected biomedical evidence.
 
-This project **does not claim that ancient texts contain modern biomedical science**. The inspiration is cultural, while all computational methods and biological analyses are based on modern scientific literature and publicly available biomedical data.
+The platform represents relationships among:
 
----
-
-## Long-Term Vision
-
-Build an explainable biomedical AI platform capable of connecting:
-
-Disease → Gene → Protein → Pathway → Drug
-
-to support computational drug discovery and systems biology research.
-
----
-
-## Current Status
-
-🚧 Version 1.0 — Repository Initialization
-
-This repository is currently under active development.
-## Current Features
-
-Current Version includes:
-
-- Explainable biomedical knowledge graph
-- Drug–Gene–Protein–Pathway relationships
-- Evidence tracking (DrugBank, KEGG, GeneCards)
-- Direct connection search
-- Shortest biological path finding
-- Case-insensitive search
-- Biomedical graph visualization
-- Interactive command-line interface
-- Dataset validation
----
-
-## Author
-
-**Ishitta Sarkar**
-
-B.Tech Biotechnology  
-Incoming M.Tech Bioinformatics
-
-Research Interests
-
-- Bioinformatics
-- Computational Biology
-- Drug Discovery
-- Biomedical Data Science
-- Explainable AI
+```text
+Disease → Gene → Protein → Pathway → Therapeutic
