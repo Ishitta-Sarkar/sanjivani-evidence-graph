@@ -10,7 +10,7 @@
 [![NetworkX](https://img.shields.io/badge/NetworkX-Graph%20Analytics-blue)](https://networkx.org/)
 [![Status](https://img.shields.io/badge/Status-Active-success)](https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph)
 
-> **Note:** Replace the **Live App** link with your deployed Streamlit URL later.
+>
 
 ---
 
