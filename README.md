@@ -6,7 +6,7 @@
 
 [![Version](https://img.shields.io/badge/version-v1.0.0-2ea44f)](https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph/releases)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Live App](https://img.shields.io/badge/Live%20App-Coming%20Soon-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Live App](https://img.shields.io/badge/Live%20App-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://sanjivani-evidence-graph.streamlit.app/)
 [![NetworkX](https://img.shields.io/badge/NetworkX-Graph%20Analytics-blue)](https://networkx.org/)
 [![Status](https://img.shields.io/badge/Status-Active-success)](https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph)
 
