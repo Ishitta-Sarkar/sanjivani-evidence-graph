@@ -1,1 +1,4 @@
-# No external Python packages are required for Version 1.
+streamlit
+networkx
+pandas
+matplotlib
