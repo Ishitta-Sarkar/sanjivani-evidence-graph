@@ -1,3 +1,6 @@
+from src.scoring import score_sources
+
+
 def _find_exact_entity(graph, entity_name):
     """Find a stored entity name without requiring exact capitalization."""
 
@@ -179,6 +182,16 @@ def display_recommendations(
             f"{recommendation['path_length']}"
         )
         print(f"   Evidence: {evidence_text}")
+        scored = score_sources(
+            [
+                step["evidence"]
+                for step in recommendation["path"]
+            ]
+        )
+        print(
+            f"   Confidence: {scored.score}/{scored.maximum} "
+            f"({scored.level})"
+        )
         print(
             f"   Explanation: "
             f"{_format_path(recommendation['path'])}"

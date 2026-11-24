@@ -16,9 +16,15 @@ ENTITY_COLORS = {
 }
 
 
-def create_graph_visualization(graph, entity_types):
+def create_graph_visualization(
+    graph,
+    entity_types,
+    output_file=None,
+):
     """
     Create and save a color-coded biomedical graph visualization.
+
+    ``output_file`` defaults to ``visualizations/biomedical_graph.png``.
     """
 
     network = nx.DiGraph()
@@ -133,15 +139,20 @@ def create_graph_visualization(graph, entity_types):
     plt.axis("off")
     plt.tight_layout()
 
-    os.makedirs(
-        "visualizations",
-        exist_ok=True,
-    )
-
-    output_file = (
-        "visualizations/"
-        "biomedical_graph.png"
-    )
+    if output_file is None:
+        os.makedirs(
+            "visualizations",
+            exist_ok=True,
+        )
+        output_file = (
+            "visualizations/"
+            "biomedical_graph.png"
+        )
+    else:
+        output_file = str(output_file)
+        parent = os.path.dirname(output_file)
+        if parent:
+            os.makedirs(parent, exist_ok=True)
 
     plt.savefig(
         output_file,

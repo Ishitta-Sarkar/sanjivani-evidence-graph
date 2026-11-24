@@ -6,6 +6,7 @@ from src.entity_loader import load_entity_types
 from src.graph_analytics import display_graph_analytics
 from src.graph_builder import BiomedicalGraph
 from src.graph_visualizer import create_graph_visualization
+from src.scoring import score_sources
 from src.version import __version__
 
 
@@ -139,6 +140,23 @@ def display_path(path, entity_types):
             )
 
         print(f"Evidence source: {step['evidence']}\n")
+
+    scored = score_sources(
+        [step["evidence"] for step in path]
+    )
+    print(
+        f"Path confidence: {scored.score}/{scored.maximum} "
+        f"({scored.level})"
+    )
+    print(
+        "Weights: DrugBank, Reactome, KEGG = 5; UniProt = 4; "
+        "DisGeNET, GeneCards = 3; any other or empty source = 0."
+    )
+    print(
+        "High: at least 80% of 5 points per edge. "
+        "Moderate: at least 50%. Otherwise Low. "
+        "This is a heuristic, not a probability."
+    )
 
 
 def display_entities(entities, entity_types):
