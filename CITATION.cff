@@ -1,18 +1,20 @@
 cff-version: 1.2.0
 message: "If you use SANJIVANI Evidence Graph in your research, please cite it using the following information."
-title: "SANJIVANI Evidence Graph"
+title: "SANJIVANI Evidence Graph: an explainable biomedical knowledge-graph platform"
 type: software
 authors:
   - family-names: "Sarkar"
     given-names: "Ishitta"
-version: 1.0.0
-date-released: 2026-07-26
+    orcid: "https://orcid.org/0009-0008-1028-6010"
+version: 1.0.1
+date-released: 2026-11-24
+url: "https://sanjivani-evidence-graph.streamlit.app/"
 repository-code: "https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph"
 keywords:
   - bioinformatics
   - computational biology
   - knowledge graph
   - drug repurposing
-  - explainable AI
+  - explainability
   - biomedical data science
 license: MIT
