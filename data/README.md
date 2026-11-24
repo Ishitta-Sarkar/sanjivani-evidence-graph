@@ -1,7 +1,21 @@
 # Data
 
-This folder contains demonstration biomedical datasets used for developing and testing the SANJIVANI Evidence Graph.
+`entities.csv` and `relationships.csv` are a hand-curated demonstration graph. They are not a dump of a public knowledge base. Rows do not yet carry stable identifiers (UniProt accessions, DrugBank IDs, Reactome stable IDs) or an access date.
 
-The initial version uses small example datasets for educational and research prototype purposes.
+## entities.csv
 
-Future versions will incorporate publicly available biomedical resources.
+| Column | Meaning |
+|---|---|
+| Entity | Display name used as a graph node |
+| Type | Disease, Gene, Protein, Protein Complex, Pathway, or Drug |
+
+## relationships.csv
+
+| Column | Meaning |
+|---|---|
+| Source | Start entity. The name matches `entities.csv` |
+| Relationship | `associated_with`, `encodes`, `participates_in`, `related_to`, `targets`, `treats`, or `binds_to` |
+| Target | End entity |
+| Evidence | Database the statement was taken from: DrugBank, UniProt, Reactome, KEGG, GeneCards, or DisGeNET |
+
+The evidence cell names the database, not a record or a paper. DrugBank content is only summarised here. Reuse of DrugBank data is covered by DrugBank's own licence, which is separate from the MIT licence on this code.
