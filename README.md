@@ -1,16 +1,13 @@
-<h1 align="center">🧬 SANJIVANI Evidence Graph</h1>
+<h1 align="center">SANJIVANI Evidence Graph</h1>
 <p align="center"><b>An explainable, evidence-aware biomedical knowledge graph for exploring drug-repurposing hypotheses</b></p>
 
 <p align="center">
   <a href="https://sanjivani-evidence-graph.streamlit.app/"><img src="https://img.shields.io/badge/Live%20demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white"/></a>
-  <a href="https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph/releases"><img src="https://img.shields.io/github/v/release/Ishitta-Sarkar/sanjivani-evidence-graph"/></a>
   <a href="https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph/actions/workflows/ci.yml"><img src="https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph/actions/workflows/ci.yml/badge.svg"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
-  <img src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white"/>
-  <a href="CITATION.cff"><img src="https://img.shields.io/badge/Cite-CITATION.cff-6A1B9A"/></a>
 </p>
 
-> **Try it:** https://sanjivani-evidence-graph.streamlit.app/ (if the app has been idle, click *"Yes, get this app back up"* and wait about 30 seconds). A scheduled workflow requests that URL once a day. The source version is **1.0.1**. The release badge shows the latest published GitHub release, which remains v1.0.0 until that tag is created.
+> **Try it:** https://sanjivani-evidence-graph.streamlit.app/ (if the app has been idle, click *"Yes, get this app back up"* and wait about 30 seconds).
 
 ## Overview
 
