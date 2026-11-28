@@ -149,7 +149,7 @@ tests/                 pytest
 
 Please cite via [`CITATION.cff`](CITATION.cff) (GitHub's **"Cite this repository"** button):
 
-> Sarkar, I. (2026). *SANJIVANI Evidence Graph: an explainable biomedical knowledge-graph platform* (v1.0.1) [Software]. https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph
+> Sarkar, I. (2026). *SANJIVANI Evidence Graph: an explainable biomedical knowledge-graph platform* (v1.0.0) [Software]. https://github.com/Ishitta-Sarkar/sanjivani-evidence-graph
 
 ## License
 
